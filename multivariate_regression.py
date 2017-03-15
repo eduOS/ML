@@ -133,6 +133,8 @@ class LinearRegression(object):
                 batch_size=10,
             ):
                 converged = self.gradient_descent(X, Y, 0.07)
+                if converged:
+                    return
 
     def test(self, path, delimiter, skip_first_line):
         """
