@@ -92,7 +92,6 @@ class LinearRegression(object):
             1-D array of estimated coefficients
             if cnoverged or not
         '''
-        converged = False
         O = self.predict_output(X)
         residuals = O - Y
         gradient_sum_squares = 0
@@ -104,8 +103,7 @@ class LinearRegression(object):
             sys.stdout.write("cost: "+str(self.cost(O, Y))+"\r\n")
             sys.stdout.flush()
         if gradient_sum_squares < epsilon ** 2:
-            converged = True
-        return converged
+            return True
 
     def read_data(self, path, delimiter, skip_first_line):
         with open(path, "rb") as f:
