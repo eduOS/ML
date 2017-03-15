@@ -7,7 +7,6 @@ from __future__ import division
 # import pandas as pd
 from scipy.stats import truncnorm
 import numpy as np
-import sys
 
 # the feature mean, max and min
 
@@ -100,8 +99,7 @@ class LinearRegression(object):
             # using the mean squared error, the partial is (o-y)*xᵢ
             gradient_sum_squares += partial ** 2
             self.coefficients[i] -= self.learning_rate*partial
-            sys.stdout.write("cost: "+str(self.cost(O, Y))+"\r\n")
-            sys.stdout.flush()
+            print("cost: "+str(self.cost(O, Y))+"\r\n")
         if gradient_sum_squares < epsilon ** 2:
             return True
 
