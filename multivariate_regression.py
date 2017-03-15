@@ -124,7 +124,7 @@ class LinearRegression(object):
         self.coefficients = truncnorm(
             a=-2/3, b=2/3, scale=3).rvs(self.feature_size+1)
 
-        while(not converged and iteration < max_iterations):
+        while(iteration < max_iterations):
             iteration += 1
             for X, Y in self.generate_batch(
                 data=norm_data,
